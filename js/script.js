@@ -89,7 +89,6 @@ function addThreeGuest() {
 
 function start() {
   interval = setInterval(decompte, 1000);
-  //button.removeEventListener("click", start);
 }
 
 function stop() {

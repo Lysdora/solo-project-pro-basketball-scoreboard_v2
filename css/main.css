@@ -1,0 +1,129 @@
+/* Variables */
+:root {
+  --color-bg: #111827;
+  --reset-btn: #f43f5e;
+  --box-score: #080001;
+  --box-score-color: #f94f6d;
+  --border-radius: 4px;
+}
+/* Reset */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+/* Custom Fonts */
+@font-face {
+  font-family: "CursedTimerUlil-Aznm";
+  src: url("../fonts/CursedTimerUlil-Aznm.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Basic Styles */
+
+body {
+  background-image: url(../images/fond-banniere-coup-pinceau-rouge-noir-parfait-pour-canva.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+}
+
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 24, 23, 0.7);
+  z-index: -1;
+}
+
+.container {
+  width: 50rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--color-bg);
+  margin: 3.125rem auto 0;
+  padding: 3.125rem;
+  border-radius: var(--border-radius);
+}
+
+.reset-container {
+  width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+  padding: 3.125rem;
+  border-radius: var(--border-radius);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+img:hover {
+  filter: grayscale(0.5);
+  transition: 0.8s ease;
+}
+
+h2 {
+  font-family: "Teko", sans-serif;
+  margin-top: 0;
+  font-size: 2.5rem;
+}
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Button */
+
+button {
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+}
+
+.reset-game {
+  background-color: var(--reset-btn);
+  color: white;
+  padding: 15px 25px;
+}
+
+/* box scores */
+
+.score-guest,
+.score-home {
+  background-color: var(--box-score);
+  max-width: 40%;
+  margin: 0 auto;
+  margin-bottom: 26px;
+  padding: 1.5rem 0;
+  margin-top: 26px;
+  border-radius: var(--border-radius);
+  font-family: "CursedTimerUlil-Aznm";
+  font-size: 5.625rem;
+  color: var(--box-score-color);
+}

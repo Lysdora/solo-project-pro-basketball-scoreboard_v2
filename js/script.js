@@ -7,6 +7,8 @@ let buttonScore3Home = document.querySelector(".btn-3");
 
 let scoreHome = 0;
 
+let equipeHomeEl = document.querySelector(".equipe-home");
+
 //------------- - - - - - - - - - - - - -----------------------
 
 // Guest Variable
@@ -18,10 +20,22 @@ let buttonScore3Guest = document.querySelector(".btn-3-guest");
 
 let scoreGuest = 0;
 
+let equipeGuestEl = document.querySelector(".equipe-guest");
+
 //------------- - - - - - - - - - - - - -----------------------
 
 // Reset Game Variable
 let resetGameEl = document.querySelector(".reset-game");
+
+// New Game variable
+let newGame = document.querySelector(".new-game");
+
+// Timer for new game
+let timerGame = document.querySelector(".timer");
+
+let timer = 30;
+
+let interval;
 
 // Function Home
 
@@ -80,4 +94,49 @@ function reset() {
   scoreHome = 0;
   scoreElHome.textContent = scoreHome;
   scoreElGuest.textContent = scoreGuest;
+  stop();
+}
+
+// Function to decrement timer
+function decompte() {
+  if (timer === 0) {
+    stop();
+  } else {
+    timer--;
+    timerGame.textContent = timer;
+    if (timer === 0) {
+      stop();
+    }
+  }
+}
+
+function start() {
+  interval = setInterval(decompte, 1000);
+  //button.removeEventListener("click", start);
+}
+
+function stop() {
+  clearInterval(interval);
+}
+
+// new game
+newGame.addEventListener("click", function () {
+  timer = 30; // Réinitialiser le chronomètre
+  timerGame.textContent = timer; // Mettre à jour l'affichage du chronomètre
+
+  start(); // Démarrer la minuterie
+});
+
+// function to highlight the winner
+function mettreEnEvidenceVainqueur() {
+  // Réinitialiser les classes CSS
+  equipeHomeEl.classList.remove("vainqueur");
+  equipeGuestEl.classList.remove("vainqueur");
+
+  // Mettre en évidence le vainqueur
+  if (scoreHome > scoreGuest) {
+    equipeHomeEl.classList.add("vainqueur"); // Ajouter la classe CSS pour mettre en évidence le nom de l'équipe du vainqueur
+  } else if (scoreGuest > scoreHome) {
+    equipeGuestEl.classList.add("vainqueur"); // Ajouter la classe CSS pour mettre en évidence le nom de l'équipe du vainqueur
+  }
 }

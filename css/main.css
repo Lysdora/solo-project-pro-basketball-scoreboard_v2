@@ -5,6 +5,7 @@
   --box-score: #080001;
   --box-score-color: #f94f6d;
   --border-radius: 4px;
+  --bordercolor--btn-scores: #9aabd8;
 }
 /* Reset */
 *,
@@ -69,6 +70,8 @@ body::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 15px;
   background-color: var(--color-bg);
   padding: 3.125rem;
   border-radius: var(--border-radius);
@@ -104,12 +107,29 @@ button {
   padding: 10px 20px;
   border-radius: var(--border-radius);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .reset-game {
   background-color: var(--reset-btn);
   color: white;
   padding: 15px 25px;
+  width: 9.375rem;
+}
+
+.new-game {
+  padding: 15px 25px;
+  width: 9.375rem;
+  background: #0284c7;
+  color: white;
+}
+
+/* Button add points */
+.btnscore {
+  background-color: transparent;
+  border: 2px solid var(--bordercolor--btn-scores);
+  color: var(--bordercolor--btn-scores);
+  font-family: "CursedTimerUlil-Aznm";
 }
 
 /* box scores */
@@ -126,4 +146,13 @@ button {
   font-family: "CursedTimerUlil-Aznm";
   font-size: 5.625rem;
   color: var(--box-score-color);
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* class for JS */
+
+.vainqueur {
+  font-weight: bold;
+  color: green;
 }

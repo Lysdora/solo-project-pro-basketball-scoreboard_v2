@@ -121,22 +121,21 @@ function stop() {
 
 // new game
 newGame.addEventListener("click", function () {
-  timer = 30; // Réinitialiser le chronomètre
-  timerGame.textContent = timer; // Mettre à jour l'affichage du chronomètre
+  timer = 30; // reset chrono
+  timerGame.textContent = timer;
 
-  start(); // Démarrer la minuterie
+  start(); // start counter
 });
 
 // function to highlight the winner
-function mettreEnEvidenceVainqueur() {
-  // Réinitialiser les classes CSS
-  equipeHomeEl.classList.remove("vainqueur");
-  equipeGuestEl.classList.remove("vainqueur");
+function highlightTheWinner() {
+  // reset css class
+  equipeHomeEl.classList.remove("winner");
+  equipeGuestEl.classList.remove("winner");
 
-  // Mettre en évidence le vainqueur
   if (scoreHome > scoreGuest) {
-    equipeHomeEl.classList.add("vainqueur"); // Ajouter la classe CSS pour mettre en évidence le nom de l'équipe du vainqueur
+    equipeHomeEl.classList.add("winner"); // add css class winner
   } else if (scoreGuest > scoreHome) {
-    equipeGuestEl.classList.add("vainqueur"); // Ajouter la classe CSS pour mettre en évidence le nom de l'équipe du vainqueur
+    equipeGuestEl.classList.add("winner"); // add css class winner
   }
 }

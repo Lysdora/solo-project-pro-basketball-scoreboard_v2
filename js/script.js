@@ -87,29 +87,6 @@ function addThreeGuest() {
 
 //------------- - - - - - - - - - - - - -----------------------
 
-// Reset Game
-resetGameEl.addEventListener("click", reset);
-function reset() {
-  scoreGuest = 0;
-  scoreHome = 0;
-  scoreElHome.textContent = scoreHome;
-  scoreElGuest.textContent = scoreGuest;
-  stop();
-}
-
-// Function to decrement timer
-function decompte() {
-  if (timer === 0) {
-    stop();
-  } else {
-    timer--;
-    timerGame.textContent = timer;
-    if (timer === 0) {
-      stop();
-    }
-  }
-}
-
 function start() {
   interval = setInterval(decompte, 1000);
   //button.removeEventListener("click", start);
@@ -119,23 +96,40 @@ function stop() {
   clearInterval(interval);
 }
 
+function reset() {
+  scoreGuest = 0;
+  scoreHome = 0;
+  scoreElHome.textContent = scoreHome;
+  scoreElGuest.textContent = scoreGuest;
+  equipeHomeEl.classList.remove("winner");
+  equipeGuestEl.classList.remove("winner");
+  stop();
+}
+
 // new game
 newGame.addEventListener("click", function () {
+  reset();
+
   timer = 30; // reset chrono
   timerGame.textContent = timer;
 
   start(); // start counter
 });
 
-// function to highlight the winner
 function highlightTheWinner() {
-  // reset css class
-  equipeHomeEl.classList.remove("winner");
-  equipeGuestEl.classList.remove("winner");
-
   if (scoreHome > scoreGuest) {
     equipeHomeEl.classList.add("winner"); // add css class winner
   } else if (scoreGuest > scoreHome) {
     equipeGuestEl.classList.add("winner"); // add css class winner
+  }
+}
+
+function decompte() {
+  if (timer === 0) {
+    stop();
+    highlightTheWinner();
+  } else {
+    timer--;
+    timerGame.textContent = timer;
   }
 }

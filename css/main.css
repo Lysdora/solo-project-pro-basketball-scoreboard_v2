@@ -108,6 +108,7 @@ button {
   border-radius: var(--border-radius);
   font-weight: bold;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .reset-game {
@@ -155,4 +156,66 @@ button {
 .vainqueur {
   font-weight: bold;
   color: green;
+}
+
+/* media queries */
+
+@media screen and (max-width: 600px) {
+  body {
+    overflow: visible;
+    background-image: none;
+    background-color: var(--color-bg);
+  }
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .reset-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: var(--color-bg);
+    border-radius: var(--border-radius);
+  }
+
+  .timer {
+    margin-bottom: 0;
+  }
+
+  button {
+    padding: 8px 10px;
+  }
+
+  .score-guest,
+  .score-home {
+    background-color: var(--box-score);
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 1rem 0;
+    font-size: 4.625rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0.8rem;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  .score-guest,
+  .score-home {
+    background-color: var(--box-score);
+    max-width: 100%;
+    margin: 0.5rem auto;
+    padding: 0.5rem 0;
+    font-size: 4.625rem;
+  }
 }
